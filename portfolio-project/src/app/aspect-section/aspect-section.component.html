@@ -1,0 +1,22 @@
+<h2 class="py-4" style="text-align: center; color: white;">Technical Knowledge and Experience</h2>
+
+<div class="container">
+    <div class="row text-center d-flex justify-content-around">
+        <div class="col-md-4 my-2" *ngFor="let levelKvp of knowledgeLevels | keyvalue: valueAscLevels">
+            <span [ngClass]="classArr[+levelKvp.key]" class="dot"></span>
+            <p style="display: inline-block; color: white; vertical-align: super; padding: 0.5rem;">{{levelKvp.value}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row text-center d-flex justify-content-around">
+        <div class="col-md-4 my-2" *ngFor="let skill of skills | keyvalue: valueAscOrder">
+            <div [ngClass]="classArr[skill.value]">
+                <div class="card-body">
+                    <h2>{{skill.key}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
