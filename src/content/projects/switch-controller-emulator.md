@@ -1,11 +1,3 @@
----
-title: Switch Controller Emulator
-description: Allows Linux devices to emulate a Nintendo Switch Pro Controller and make arbitrary programmatic input via a simple API.
-image: 🎮
-tags: [Python, Linux, DBus, Bluetooth, Avalonia]
-githubUrl: https://github.com/jordan-milbrath/switch-controller-emulator
----
-
 ## Overview
 As the first project on this site, I'm ecstatic to share it with you!
 
