@@ -12,7 +12,7 @@ function Home() {
           <span className="home-name">Jordan Milbrath</span>
         </h1>
         <p className="home-subtitle">
-          A creative developer building digital experiences
+          
         </p>
         <div className="home-cta">
           <button 

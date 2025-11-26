@@ -4,18 +4,11 @@ import './Projects.css'
 function Projects() {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution with payment integration and admin dashboard.',
-      image: '🛒',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      slug: 'e-commerce-platform'
-    },
-    {
-      title: 'Task Management App',
-      description: 'Collaborative task management tool with real-time updates and team features.',
-      image: '📋',
-      tags: ['Vue.js', 'Firebase', 'WebSockets'],
-      slug: 'task-management-app'
+      title: 'Switch Controller Emulator',
+      description: 'Allows Linux devices to emulate a Nintendo Switch Pro Controller and make arbitrary programmatic input via a simple API.',
+      image: '🎮',
+      tags: ['Python', 'Linux', 'DBus', 'Bluetooth', 'Avalonia'],
+      slug: 'switch-controller-emulator'
     }
   ]
 

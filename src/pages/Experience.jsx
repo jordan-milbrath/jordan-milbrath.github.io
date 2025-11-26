@@ -6,22 +6,22 @@ function Experience() {
       title: 'Cybersecurity Software Architect',
       company: 'NDSU',
       period: '2022 - Present',
-      description: 'Leading development of innovative web applications and mentoring junior developers.',
-      skills: ['React', 'TypeScript', 'Node.js', 'AWS']
+      description: 'Transform ambiguous project requirements into well-defined, modular architecture by proactively clarifying objectives, identifying gaps, and collaborating with stakeholders to ensure functional implementation.',
+      skills: ['C#', '.NET', 'Python', 'Git', 'MAUI', 'ASP.NET Core']
     },
     {
       title: 'Graduate Research Assistant',
       company: 'NDSU',
       period: '2021 - 2022',
-      description: 'Built scalable web applications from scratch and collaborated with cross-functional teams.',
-      skills: ['JavaScript', 'Python', 'PostgreSQL', 'Docker']
+      description: 'Work with teams to complete artificial intelligence and network security projects, primarily in C# (.NET) and Python using Git. Conduct software testing and write research papers analyzing software and results.',
+      skills: ['C#', '.NET', 'Python', 'Git']
     },
     {
       title: 'IT Intern',
       company: 'Network Center, Inc.',
       period: '2020 - 2022',
-      description: 'Built scalable web applications from scratch and collaborated with cross-functional teams.',
-      skills: ['JavaScript', 'Python', 'PostgreSQL', 'Docker']
+      description: 'Led interns, supported web development, managed client communications and logistics, automated tasks with PowerShell, and provided technical troubleshooting across software, hardware, and networking.',
+      skills: ['PowerShell', 'Windows', 'Active Directory', 'Self-Sufficiency', 'Customer Service']
     }
   ]
 
