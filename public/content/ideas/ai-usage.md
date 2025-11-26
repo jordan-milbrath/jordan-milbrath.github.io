@@ -1,9 +1,3 @@
----
-title: When to Use AI
-date: 2025-11-15
-category: Technology
----
-
 ## Intro
 Artificial intelligence and humans both have their places, but oftentimes, they aren't the same place.
 
