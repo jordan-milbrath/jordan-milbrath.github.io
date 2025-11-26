@@ -1,0 +1,32 @@
+.pride-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.centered-text {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+  margin: 0;
+}
+
+.dark .centered-text {
+  color: #e0e0e0;
+}
+
+.pride-text {
+  background: linear-gradient(135deg, #ff0000, #ff7f00, #ffcc00, #00ff00, #0000ff, #4b0082, #9400d3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+

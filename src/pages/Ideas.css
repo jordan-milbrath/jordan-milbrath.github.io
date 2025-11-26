@@ -1,0 +1,158 @@
+.ideas-page {
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-in;
+}
+
+.ideas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.idea-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dark .idea-card {
+  background: #2a2a2a;
+  border-color: #404040;
+}
+
+.idea-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dark .idea-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.idea-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.idea-category {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.idea-date {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.dark .idea-date {
+  color: #666;
+}
+
+.idea-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.dark .idea-title {
+  color: #e0e0e0;
+}
+
+.title-asterisk {
+  color: #999;
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+  vertical-align: baseline;
+}
+
+.dark .title-asterisk {
+  color: #666;
+}
+
+.idea-excerpt {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.dark .idea-excerpt {
+  color: #999;
+}
+
+.idea-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.idea-link:hover {
+  transform: translateX(4px);
+  opacity: 0.8;
+}
+
+.no-articles {
+  text-align: center;
+  color: #666;
+  padding: 3rem;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin-top: 3rem;
+}
+
+.dark .no-articles {
+  background: #2a2a2a;
+  border-color: #404040;
+  color: #999;
+}
+
+.no-articles code {
+  background: rgba(102, 126, 234, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.dark .no-articles code {
+  background: rgba(102, 126, 234, 0.2);
+}
+
+@media (max-width: 768px) {
+  .ideas-page {
+    padding: 5rem 1rem 3rem;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+  }
+  
+  .idea-card {
+    padding: 1.5rem;
+  }
+  
+  .idea-title {
+    font-size: 1.5rem;
+  }
+}
+
