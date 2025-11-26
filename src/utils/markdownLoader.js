@@ -157,139 +157,38 @@ export async function getArticleBySlug(slug) {
   return articles.find(article => article.slug === slug)
 }
 
-// Project loading functions
+// Project loading functions (static imports; no network requests)
+import ecommerceProjectMd from '../content/projects/e-commerce-platform.md?raw'
+import switchControllerEmulatorMd from '../content/projects/switch-controller-emulator.md?raw'
+
+const STATIC_PROJECTS = [
+  {
+    slug: 'e-commerce-platform',
+    title: 'E-Commerce Platform',
+    description: 'A full-stack e-commerce solution with payment integration and admin dashboard.',
+    image: '🛒',
+    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    githubUrl: 'https://github.com/yourusername/e-commerce-platform',
+    liveUrl: 'https://ecommerce-demo.example.com',
+    content: ecommerceProjectMd,
+  },
+  {
+    slug: 'switch-controller-emulator',
+    title: 'Switch Controller Emulator',
+    description: 'Allows Linux devices to emulate a Nintendo Switch Pro Controller and make arbitrary programmatic input via a simple API.',
+    image: '🎮',
+    tags: ['Python', 'Linux', 'DBus', 'Bluetooth', 'Avalonia'],
+    githubUrl: 'https://github.com/jordan-milbrath/switch-controller-emulator',
+    liveUrl: null,
+    content: switchControllerEmulatorMd,
+  },
+]
+
 export async function loadMarkdownProjects() {
-  const projects = []
-  
-  try {
-    // Fetch the directory listing to get all .md files (excluding README)
-    const listResponse = await fetch('/content/projects/list.json')
-    
-    let fileList = []
-    if (listResponse.ok) {
-      fileList = await listResponse.json()
-      console.log('Loading project markdown files from directory listing:', fileList)
-    } else {
-      // Fallback: try index.json for backwards compatibility
-      const indexResponse = await fetch('/content/projects/index.json')
-      if (indexResponse.ok) {
-        fileList = await indexResponse.json()
-        console.log('Loading project markdown files from index.json (fallback):', fileList)
-      } else {
-        console.error('Failed to load project file list:', listResponse.statusText)
-        return []
-      }
-    }
-    
-    // Filter out README files
-    fileList = fileList.filter(filename => !filename.includes('README') && filename.endsWith('.md'))
-    
-    // Fetch each markdown file
-    const fetchPromises = fileList.map(async (filename) => {
-        try {
-          const response = await fetch(`/content/projects/${filename}`)
-          if (!response.ok) {
-            console.warn(`Failed to load ${filename}:`, response.statusText)
-            return null
-          }
-          const content = await response.text()
-          return { filename, content }
-        } catch (error) {
-          console.error(`Error loading ${filename}:`, error)
-          return null
-        }
-      })
-    
-    const fileContents = await Promise.all(fetchPromises)
-    
-    // Process each file
-    for (const fileData of fileContents) {
-      if (!fileData) continue
-      
-      const { filename, content } = fileData
-      const slug = filename.replace('.md', '')
-      
-      // Parse frontmatter
-      const frontmatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---\s*(\n|$)([\s\S]*)$/m)
-      
-      let markdown = content
-      let frontmatter = null
-      let titleMatch = null
-      let descriptionMatch = null
-      let imageMatch = null
-      let tagsMatch = null
-      let githubUrlMatch = null
-      let liveUrlMatch = null
-      
-      if (frontmatterMatch) {
-        frontmatter = frontmatterMatch[1]
-        markdown = frontmatterMatch[3] || ''
-        
-        // Parse frontmatter fields
-        titleMatch = frontmatter.match(/title:\s*(.+)/)
-        descriptionMatch = frontmatter.match(/description:\s*(.+)/)
-        imageMatch = frontmatter.match(/image:\s*(.+)/)
-        tagsMatch = frontmatter.match(/tags:\s*\[(.*?)\]/)
-        githubUrlMatch = frontmatter.match(/githubUrl:\s*(.+)/)
-        liveUrlMatch = frontmatter.match(/liveUrl:\s*(.+)/)
-      } else {
-        const frontmatterAttempt = content.match(/^---\s*\n([\s\S]*?)\n---\s*/)
-        if (frontmatterAttempt) {
-          frontmatter = frontmatterAttempt[1]
-          markdown = content.replace(/^---\s*\n[\s\S]*?\n---\s*/, '').trim()
-          
-          titleMatch = frontmatter.match(/title:\s*(.+)/)
-          descriptionMatch = frontmatter.match(/description:\s*(.+)/)
-          imageMatch = frontmatter.match(/image:\s*(.+)/)
-          tagsMatch = frontmatter.match(/tags:\s*\[(.*?)\]/)
-          githubUrlMatch = frontmatter.match(/githubUrl:\s*(.+)/)
-          liveUrlMatch = frontmatter.match(/liveUrl:\s*(.+)/)
-        }
-      }
-      
-      // Extract title
-      let projectTitle = null
-      if (titleMatch) {
-        projectTitle = titleMatch[1].trim()
-      } else {
-        const h1Match = markdown.match(/^#\s+(.+)$/m)
-        if (h1Match) {
-          projectTitle = h1Match[1].trim()
-          markdown = markdown.replace(/^#\s+.+$/m, '').trim()
-        } else {
-          projectTitle = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
-        }
-      }
-      
-      // Parse tags
-      let tags = []
-      if (tagsMatch) {
-        const tagsStr = tagsMatch[1].trim()
-        tags = tagsStr.split(',').map(tag => tag.trim().replace(/['"]/g, ''))
-      }
-      
-      projects.push({
-        slug: slug,
-        title: projectTitle,
-        description: descriptionMatch ? descriptionMatch[1].trim() : '',
-        image: imageMatch ? imageMatch[1].trim() : '📦',
-        tags: tags,
-        githubUrl: githubUrlMatch ? githubUrlMatch[1].trim() : null,
-        liveUrl: liveUrlMatch ? liveUrlMatch[1].trim() : null,
-        content: markdown,
-        path: `/content/projects/${filename}`
-      })
-    }
-    
-    return projects
-  } catch (error) {
-    console.error('Error loading markdown projects:', error)
-    return []
-  }
+  return STATIC_PROJECTS
 }
 
 export async function getProjectBySlug(slug) {
-  const projects = await loadMarkdownProjects()
-  return projects.find(project => project.slug === slug)
+  return STATIC_PROJECTS.find(project => project.slug === slug)
 }
 
